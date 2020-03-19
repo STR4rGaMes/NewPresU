@@ -1,10 +1,343 @@
-<nb-card>
-  <nb-card-header>
-    Smart Table
-  </nb-card-header>
+<div class="row" style="margin-top: -28px; margin-left: -40px; margin-right: -40px;"> 
+  <div class="col-md-12 ">
+    <nb-card>
 
-  <nb-card-body>
-    <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
-    </ng2-smart-table>
-  </nb-card-body>
-</nb-card>
+        <nb-card-header>Clasificadores Presupuestales</nb-card-header>
+            <nb-card-body>
+            <div class="row show-grid">
+                          
+                <div class="col-md-6" style="margin-left: 0px; margin-right: 0px;"  >
+                  <nb-card>
+                      <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+                      </ng2-smart-table>
+
+                  </nb-card>
+                </div>
+
+                <div class="col-md-6" style="margin-left: 0px; margin-right: 0px;"  >
+                  <nb-card>
+                    <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+                    </ng2-smart-table>
+                  </nb-card>
+                </div>
+
+            </div>
+        </nb-card-body>
+
+      
+
+        
+    <nb-card>
+        <nb-card-header>Default Buttons</nb-card-header>
+        <nb-card-body>
+          <div class="buttons-row">
+            <button class="btn btn-primary"> HOla mundo 
+            </button>
+            <button disabled nbButton>
+            </button>
+          </div>
+        </nb-card-body>
+      </nb-card>
+
+
+
+    </nb-card>
+    </div>
+</div>
+
+
+
+
+ 
+    
+    <!-- <div class="nb-card-body pt-2">
+          <div class="row">
+              <div class="col-md-6 div-brow-top pl-3">
+                  <label class="label-brow">Descripción:</label>
+                  <input class="nb-form-control  nb-form-control-sm" type="text" (change)="tiedClear()" (keyup.enter)="tiedRefresh({page:1}, 'OC')" formControlName="EspeDetNombre">
+              </div>
+              <div class="col-md-1 div-brow-top">
+                  <a class="btn btn-light btn-sm" style="margin-top: 1.6rem !important;" (click)="tiedRefresh({page:1}, 'OC')"><i class="i-Filter-2"></i></a>
+              </div>
+          </div>
+    </div> -->
+        
+        
+
+          <!-- 
+          
+          <ngx-datatable class="material" style="height: 420px;"
+              [headerHeight]="35" [rowHeight]="30" [footerHeight]="40" [rows]="tiedRows" [scrollbarV]="true"
+              [messages]="{emptyMessage:'Cargue Clasificador.'}" [selectionType]="SelectionType.single" (select)="tiedSelected($event)">
+              <ngx-datatable-column name="#" headerClass="bg-info text-white text-center pt-2" cellClass="text-right pt-2" [width]="60">
+                  <ng-template let-rowIndex="rowIndex" ngx-datatable-cell-template>{{tiedRowsIndex+rowIndex+1}}</ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Clasificador" prop="cEspeDetCodigo" headerClass="bg-info text-white text-center pt-2" cellClass="text-left pt-2 pl-0" [width]="110">
+                  <ng-template let-row="row" ngx-datatable-cell-template>{{ row.cEspeDetCodigo }}</ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Descripción" prop="cEspeDetNombre" headerClass="bg-info text-white text-center pt-2" cellClass="text-left pt-2" [width]="400">
+                  <ng-template let-row="row" ngx-datatable-cell-template>{{ row.cEspeDetNombre }}</ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="SIAF" prop="cEspeDetSiaf" headerClass="bg-info text-white text-center pt-2" cellClass="text-left pt-2" [width]="100">
+                  <ng-template let-row="row" ngx-datatable-cell-template>{{ row.cEspeDetSiaf }}</ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-footer>
+                  <ng-template ngx-datatable-footer-template
+                      let-curPage="curPage" let-isVisible="isVisible"
+                      let-offset="offset" let-pageSize="pageSize" let-rowCount="rowCount" let-selectedCount="selectedCount">
+                      <div class="page-count"><span>{{ tiedPag }}</span></div>
+                      <datatable-pager
+                          [pagerLeftArrowIcon]="'datatable-icon-left'" [pagerRightArrowIcon]="'datatable-icon-right'" [pagerPreviousIcon]="'datatable-icon-prev'" [pagerNextIcon]="'datatable-icon-skip'"
+                          [page]="1" [size]="RecordLimit" [count]="tiedRowsCount" [hidden]="!((tiedRowsCount / RecordLimit) > 1)" (change)="tiedRefresh($event, 'OC')">
+                      </datatable-pager>
+                  </ng-template>
+              </ngx-datatable-footer>
+          </ngx-datatable>
+          <div class="col-md-12 pl-0 pt-2">
+              <a class="btn btn-primary btn-sm d-none" style="color: blanchedalmond"><i class="i-Add-File">&nbsp;</i> Agregar </a>
+              <button type="button" class="btn btn-primary btn-sm" disabled data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing Report"><i class="i-Add-File">&nbsp;</i> Reporte PDF </button>
+              <button class="btn btn-success btn-sm ml-2" disabled data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing Report"><i class="i-File-Excel">&nbsp;</i> Reporte Excel </button>
+          </div>
+      </div>
+  </div></div>
+  
+  <div class="col-md-6 px-1">
+  <div class="card o-hidden">
+  <div class="card-body">
+  <ngb-tabset class="p-0">
+      <ngb-tab title="Conceptos"><ng-template ngbTabContent>
+          <div class="container">
+              <div class="row">
+                  <label class="col-md-2 text-win-b pl-2">Genérica:</label>
+                  <label class="col-md-9 text-win">{{tiedWin.cGeneCodeName}}</label>
+              </div>
+              <div class="row">
+                  <label class="col-md-2 text-win-b pl-2">Sub Genérica:</label>
+                  <label class="col-md-9 text-win">{{tiedWin.cSubGeneCodeName}}</label>
+              </div>
+              <div class="row">
+                  <label class="col-md-2 text-win-b pl-2">SubGen Det:</label>
+                  <label class="col-md-9 text-win">{{tiedWin.cSubGeneDetCodeName}}</label>
+              </div>
+              <div class="row">
+                  <label class="col-md-2 text-win-b pl-2">Específica:</label>
+                  <label class="col-md-9 text-win">{{tiedWin.cEspeCodeName}}</label>
+              </div>
+              <div class="row">
+                  <label class="col-md-2 text-win-b pl-2">Clasificador:</label>
+                  <label class="col-md-9 text-win">{{tiedWin.cEspeDetNombre}}</label>
+              </div>
+          </div>
+          <ngx-datatable class="material" style="height: 415px;"
+              [headerHeight]="35" [rowHeight]="30" [footerHeight]="40" [rows]="gcrRows" [scrollbarV]="true"
+              [messages]="{emptyMessage:'Seleccione un Clasificador.'}"  [selectionType]="SelectionType.single">
+              <ngx-datatable-column name="#" headerClass="bg-info text-white text-center pt-2" cellClass="text-right pt-2" [width]="60">
+                  <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>{{gcrRowsIndex+rowIndex+1}}</ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Doc. Gestión" prop="cDocGestAY" headerClass="bg-info text-white text-center pt-2 pl-0" cellClass="text-left pt-2 pl-0" [width]="90">
+                  <ng-template let-row="row" ngx-datatable-cell-template>{{ row.cDocGestAY }}</ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Descripcion" prop="cConcepReqNombrex" headerClass="bg-info text-white text-center pt-2" cellClass="text-left pt-2" [width]="400">
+                  <ng-template let-row="row" ngx-datatable-cell-template>{{row.cConcepReqNombrex}}</ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="% U.I.T" prop="nConcepReqPuit" headerClass="bg-info text-white text-center pt-2" cellClass="text-right pt-2" [width]="80">
+                  <ng-template let-row="row" ngx-datatable-cell-template>{{ row.nConcepReqPuit | number:'1.4-4' }}</ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Importe" prop="nConcepReqImpt" headerClass="bg-info text-white text-center pt-2" cellClass="text-right pt-2" [width]="90">
+                  <ng-template ngx-datatable-header-template>Importe</ng-template>
+                  <ng-template let-row="row" ngx-datatable-cell-template>{{ row.nConcepReqImpt | currency: 0 : "" }}</ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Código" prop="cDocGestAY" headerClass="bg-info text-white text-center pt-2" cellClass="text-right pt-2" [width]="100">
+                  <ng-template let-row="row" ngx-datatable-cell-template>{{row.cDocGestAY}}</ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Unidad Orgánica" prop="cDepenNombre" headerClass="bg-info text-white text-center pt-2" cellClass="text-right pt-2" [width]="100">
+                  <ng-template let-row="row" ngx-datatable-cell-template>{{row.cDepenNombre}}</ng-template>
+              </ngx-datatable-column>        
+              <ngx-datatable-footer><ng-template ngx-datatable-footer-template
+                  let-curPage="curPage" let-isVisible="isVisible"
+                  let-offset="offset" let-pageSize="pageSize" let-rowCount="rowCount" let-selectedCount="selectedCount">
+                  <div class="page-count"><span>{{ gcrPag }}</span></div>
+                  <datatable-pager
+                      [pagerLeftArrowIcon]="'datatable-icon-left'" [pagerRightArrowIcon]="'datatable-icon-right'" [pagerPreviousIcon]="'datatable-icon-prev'" [pagerNextIcon]="'datatable-icon-skip'"
+                      [page]="1" [size]="RecordLimit" [count]="gcrRowsCount" [hidden]="!((gcrRowsCount / RecordLimit) > 1)" (change)="actualizarGrc($event)">
+                  </datatable-pager>
+              </ng-template></ngx-datatable-footer>
+          </ngx-datatable>
+      </ng-template></ngb-tab>
+      <ngb-tab title="Documentos"><ng-template ngbTabContent>
+          <div class="container">
+              <div class="row">
+                  <label class="col-md-2 text-win-b pl-2">Genérica:</label>
+                  <label class="col-md-9 text-win">{{tiedWin.cGeneCodeName}}</label>
+              </div>
+              <div class="row">
+                  <label class="col-md-2 text-win-b pl-2">Sub Genérica:</label>
+                  <label class="col-md-9 text-win">{{tiedWin.cSubGeneCodeName}}</label>
+              </div>
+              <div class="row">
+                  <label class="col-md-2 text-win-b pl-2">SubGen Det:</label>
+                  <label class="col-md-9 text-win">{{tiedWin.cSubGeneDetCodeName}}</label>
+              </div>
+              <div class="row">
+                  <label class="col-md-2 text-win-b pl-2">Específica:</label>
+                  <label class="col-md-9 text-win">{{tiedWin.cEspeCodeName}}</label>
+              </div>
+              <div class="row">
+                  <label class="col-md-2 text-win-b pl-2">Clasificador:</label>
+                  <label class="col-md-9 text-win">{{tiedWin.cEspeDetNombre}}</label>
+              </div>
+          </div>
+          <form [formGroup]="formTIb">
+          <div class="row">
+              <div class="col-md-2 div-brow-top pl-3 mt-2">
+                  <select class="form-control form-control-sm-cbo" (change)="tiClear()" disabled formControlName="FilId">
+                      <option [value]="0"></option>
+                      <option value="{{_i.iFilId}}" *ngFor="let _i of filiales">{{_i.cFilAbrev}}</option>
+                  </select>
+              </div>
+              <div class="col-md-3">
+                  <div class="row">
+                      <div class="col-md-5 div-brow-top mt-2">
+                          <select class="form-control form-control-sm-cbo" (change)="DocIdChange($event.target.value)" disabled formControlName="DocId">
+                              <option [value]="0"></option>
+                              <option [value]="item.iDocId" *ngFor="let item of documentos">{{item.cDocNombre}}</option>
+                          </select>
+                      </div>
+                      <div class="col-md-7 div-brow-top mt-2">
+                          <select class="form-control form-control-sm-cbo" (change)="tiClear()" disabled formControlName="DocSerie">
+                              <option value="0"></option>
+                              <option value="{{_i.iDocSerie}}" *ngFor="let _i of documentos_series">{{_i.cDocSerieF}}</option>
+                          </select>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-5">
+                  <div class="row">
+                      <div class="col-md-6 input-group input-group-sm div-brow-top mt-2">
+                          <input class="form-control" placeholder="Fecha Inicial" name="di" ngbDatepicker #di="ngbDatepicker" (change)="tiClear()" [disabled]="tiedWin==''" formControlName="FechaIni">
+                          <div class="input-group-append">
+                              <button class="btn btn-secondary" (click)="di.toggle()" [disabled]="tiedWin==''"><i class="i-Calendar-4"></i></button>
+                          </div>
+                      </div>
+                      <div class="col-md-6 input-group input-group-sm div-brow-top mt-2">
+                          <input class="form-control" placeholder="Fecha Final" name="df" ngbDatepicker #df="ngbDatepicker" (change)="tiClear()" [disabled]="tiedWin==''" formControlName="FechaFin">
+                          <div class="input-group-append">
+                              <button class="btn btn-secondary" (click)="df.toggle()" [disabled]="tiedWin==''"><i class="i-Calendar-4"></i></button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-1 div-brow-top">
+                  <button class="btn btn-light btn-sm" style="margin-top: 0.5rem !important;" (click)="tiRefresh({page:1},'OC')" [disabled]="tiedWin==''"><i class="i-Filter-2"></i></button>
+              </div>
+          </div></form>
+          <ngx-datatable class="material" style="height: 372px;"
+              [headerHeight]="35" [rowHeight]="30" [footerHeight]="40" [rows]="tiRows" [scrollbarV]="true"
+              [messages]="{emptyMessage:'Seleccione un Concepto ...'}" [selectionType]="SelectionType.single">
+              <ngx-datatable-column name="#" headerClass="bg-info text-white text-center pt-2" cellClass="text-right pt-2" [frozenLeft]="true" [width]="60">
+                  <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>{{tiRowsIndex+rowIndex+1}}</ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Documento" prop="cIngDocument" headerClass="bg-info text-white text-center pt-2" cellClass="text-left pt-2 pl-0" [frozenLeft]="true" [width]="110">
+                  <ng-template let-row="row" ngx-datatable-cell-template>{{ row.cIngDocument }}</ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Fecha" prop="dDocFecha" headerClass="bg-info text-white text-center pt-2" cellClass="text-center pt-2" [width]="120">
+                  <ng-template let-row="row" ngx-datatable-cell-template>{{ row.dDocFecha | date: 'dd/MM/yyyy' }}</ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Sede" prop="cFilAbrev" headerClass="bg-info text-white text-center pt-2" cellClass="text-left pt-2" [width]="80">
+                  <ng-template let-row="row" ngx-datatable-cell-template>{{ row.cFilAbrev }}</ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="TP" prop="cTipPagAbrev" headerClass="bg-info text-white text-center pt-2" cellClass="text-center pt-2" [width]="50">
+                  <ng-template let-row="row" ngx-datatable-cell-template>{{ row.cTipPagAbrev }}</ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Apellidos y Nombres" prop="cPersApeNom" headerClass="bg-info text-white text-center pt-2" cellClass="text-left pt-2" [width]="350">
+                  <ng-template let-row="row" ngx-datatable-cell-template>{{ row.cPersApeNom }}</ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Importe" prop="nIngDetImpt" headerClass="bg-info text-white text-center pt-2" cellClass="text-right pt-2" [width]="90">
+                  <ng-template let-row="row" ngx-datatable-cell-template>{{ row.nIngDetImpt | currency: 0 : "" }}</ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Cód Univ" headerClass="bg-info text-white text-center pt-2" cellClass="text-center pt-2" [width]="100">
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Concepto" prop="cConcepReqNombrex" headerClass="bg-info text-white text-center pt-2" cellClass="text-left pt-2" [width]="350">
+                  <ng-template let-row="row" ngx-datatable-cell-template>{{ row.cConcepReqNombrex }}</ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-footer><ng-template ngx-datatable-footer-template
+                  let-curPage="curPage" let-isVisible="isVisible" let-offset="offset" let-pageSize="pageSize"
+                  let-rowCount="rowCount" let-selectedCount="selectedCount">
+                  <div class="page-count"><span>{{ tiPag }}</span></div>
+                  <datatable-pager
+                      [pagerLeftArrowIcon]="'datatable-icon-left'" [pagerRightArrowIcon]="'datatable-icon-right'" [pagerPreviousIcon]="'datatable-icon-prev'" [pagerNextIcon]="'datatable-icon-skip'"
+                      [page]="1" [size]="RecordLimit" [count]="tiRowsCount" [hidden]="!((tiRowsCount / RecordLimit) > 1)" (change)="tiRefresh($event,'OC')">
+                  </datatable-pager>
+              </ng-template></ngx-datatable-footer>
+          </ngx-datatable>
+      </ng-template></ngb-tab>
+  </ngb-tabset>
+  </div></div>
+  </div></div>
+  
+  <ng-template #modalNew let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Agregar Nuevo Clasificador</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button> 
+        </div>
+        <div class="modal-body"> 
+          <div class="row">                    
+            <div class="col-md-10 form-group">
+              <label for="des">Descripción:</label>
+              <input type="text" class="form-control form-control-sm" id="des" name="des" (keyup.enter)=actualizarNGrc()>
+            </div>
+            <div class="col-md-1 pl-1 mt-1">
+                <a class="btn btn-light  btn-sm mt-3"  (click)="actualizarNGrc()"><i class="i-Reload"></i></a>
+              </div>
+        </div>
+        <ngx-datatable
+          style="height: calc(100vh - 250px); box-shadow: none"
+          class="material fullscreen"
+          [columnMode]="'force'"
+          [headerHeight]="35"
+          [footerHeight]="50"
+          [rowHeight]="35"
+          [scrollbarV]="true"
+          [messages]="{emptyMessage:'Cargue Clasificador.'}"
+          [rows]="clasificadores_grd"
+          (activate)="selectClasificador($event)">
+          <ngx-datatable-column headerClass="bg-info text-white text-center pt-2" cellClass="text-right pt-2" name="num" [minWidth]="50" [maxWidth]="50">
+            <ng-template ngx-datatable-header-template>
+                #
+            </ng-template>
+            <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>
+                {{rowIndex+1}}
+            </ng-template>
+          </ngx-datatable-column>
+            <ngx-datatable-column headerClass="bg-info text-white text-center pt-2" cellClass="text-left pt-2" name="cEspeDetCodigo" [minWidth]="120" [maxWidth]="120">
+              <ng-template ngx-datatable-header-template>
+                Clasificador
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column headerClass="bg-info text-white text-center pt-2" cellClass="text-left pt-2" name="cEspeDetNombre" [minWidth]="440" [maxWidth]="440">
+              <ng-template ngx-datatable-header-template>
+                  Descripción
+              </ng-template>
+              </ngx-datatable-column>
+                <ngx-datatable-column headerClass="bg-info text-white text-center pt-2" cellClass="text-left pt-2" name="cEspeDetSiaf" [minWidth]="140" [maxWidth]="140">
+              <ng-template ngx-datatable-header-template>
+                      SIAF
+              </ng-template>
+              </ngx-datatable-column>
+        </ngx-datatable>
+        </div>
+        <div class="modal-footer">
+          <btn-loading btnClass="btn-primary btn-sm" (click)="submit()" [loading]="loading"><i class="i-Yes">&nbsp;</i>Agregar</btn-loading>
+          <button type="button" class="btn btn-sm btn-danger" (click)="modal.close('cancel click')"><i class="i-Close"></i>&nbsp;Salir</button>
+        </div>
+      </ng-template>
+  
+  <ng-template #modalLoading let-modal>
+      <div class="modal-body" align="center">
+          <div><img class="precarga" src="./assets/images/gif/loading.gif"></div>
+          <button type="button" id="btnLoadingClose" class="btn btn-primary btn-sm d-none" (click)="modal.close('Cross click')"></button>
+      </div>
+  </ng-template>
+           -->

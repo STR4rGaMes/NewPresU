@@ -2,7 +2,10 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatSort} from '@angular/material/sort';
-import { MatDivider } from "@angular/material/divider";
+
+// formulario
+
+import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'ngx-secfun',
@@ -11,10 +14,10 @@ import { MatDivider } from "@angular/material/divider";
 })
 
 
-
 export class SecfunComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  options: FormGroup;  
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
@@ -23,15 +26,26 @@ export class SecfunComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
+
+
+  constructor(fb: FormBuilder) {
+    this.options = fb.group({
+      hideRequired: false,
+      floatLabel: 'always',
+    });
+    }
+
+
 }
+
 
 export interface PeriodicElement {
   name: string;
   position: number;
   weight: number;
   symbol: string;
+  
 }
-
 
 const ELEMENT_DATA: PeriodicElement[] = [
   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
@@ -415,4 +429,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: 19, name: 'Potassium', weight: 39.0983, symbol: 'K'},
   {position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca'},
 
+
+
+
+  
 ];

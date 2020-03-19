@@ -5,5 +5,9 @@
 @include nb-install-component() {
   .menu-sidebar ::ng-deep .scrollable {
     padding-top: nb-theme(layout-padding-top);
-  }
+        // :hover {color:rgb(48, 11, 83);}     
+        // background-color:rgb(12, 11, 83);
+      }
+ 
+
 }

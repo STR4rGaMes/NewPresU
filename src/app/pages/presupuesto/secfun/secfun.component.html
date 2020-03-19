@@ -1,0 +1,272 @@
+   <div class="row" style="margin-top: -28px; margin-left: -40px; margin-right: -40px;"> 
+    <div class="col-md-12">
+      <nb-card>
+          <nb-card-header >Clasificadores Presupuestales</nb-card-header>
+              <nb-card-body>
+                <div class="row show-grid">
+                  <div class="col-md-6" style="margin-left: 0px; margin-right: 0px;">
+
+                    <div class="row">
+                        <div class="col-md-12 div-brow-top pl-9" >
+
+                          <div class="row show-grid ">
+
+                                      <div class="col-md-2">
+                                        <mat-form-field [style.fontSize.px]=14 style="width:70px !important" 
+                                          [hideRequiredMarker]="options.value.hideRequired"
+                                          [floatLabel]="options.value.floatLabel"><mat-select required>
+                                            <mat-option>-- None --</mat-option>
+                                          <mat-option value="option">Option</mat-option>
+                                        </mat-select><mat-label>Tipo:</mat-label>
+                                      </mat-form-field>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                      <mat-form-field [style.fontSize.px]=14 style="width:70px !important" 
+                                        [hideRequiredMarker]="options.value.hideRequired"
+                                        [floatLabel]="options.value.floatLabel">
+                                      <mat-select required>
+                                        <mat-option>-- None --</mat-option>
+                                        <mat-option value="option">Option</mat-option>
+                                      </mat-select>
+                                      <mat-label>Gen:</mat-label>
+                                    </mat-form-field>
+                                  </div>
+
+                                  <div class="col-md-2">
+                                    <mat-form-field [style.fontSize.px]=14 style="width:70px !important" 
+                                      [hideRequiredMarker]="options.value.hideRequired"
+                                      [floatLabel]="options.value.floatLabel">
+                                    <mat-select required>
+                                      <mat-option>-- None --</mat-option>
+                                      <mat-option value="option">Option</mat-option>
+                                    </mat-select>
+                                    <mat-label>Sub. Gen:</mat-label>
+                                  </mat-form-field>
+                                </div>
+
+
+
+                                  <div class="col-md-4">
+                                    <mat-form-field [style.fontSize.px]=14 style="width:200px !important" 
+                                    [hideRequiredMarker]="options.value.hideRequired"
+                                    [floatLabel]="options.value.floatLabel">
+                                  <input matInput placeholder="Detalle:" required>
+                                </mat-form-field>
+                                </div>
+
+                                  
+                          </div>
+
+                        </div>
+                
+                    </div>
+
+                  <nb-card style="margin-top: 0px; margin-left: 0px; margin-right: 0px;"> 
+                    <div class="example-container mat-elevation-z8">
+                            <table mat-table [dataSource]="dataSource">
+                          
+                              <ng-container matColumnDef="position">
+                                <th mat-header-cell *matHeaderCellDef> No. </th>
+                                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                              </ng-container>
+                          
+                              <ng-container matColumnDef="name">
+                                <th mat-header-cell *matHeaderCellDef> Clasificador </th>
+                                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                              </ng-container>
+                          
+                              <ng-container matColumnDef="weight">
+                                <th mat-header-cell *matHeaderCellDef> Descripcion </th>
+                                <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                              </ng-container>
+                          
+                              <ng-container matColumnDef="symbol">
+                                <th mat-header-cell *matHeaderCellDef> SIAF </th>
+                                <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                              </ng-container>
+                          
+                              <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                            </table>
+                          </div>
+                      </nb-card>
+
+                      <mat-card-footer style="margin-top: 0px; margin-left: 0px; margin-right: 0px;"> 
+                        <mat-paginator [pageSizeOptions]="[20, 20, 100]" showFirstLastButtons></mat-paginator>
+                      </mat-card-footer>
+                        
+                      <nb-card>
+
+                        <div class="row">
+         <div class="col-md-3 col-md-offset-9 text-right">
+            <div class="btn-group contenedor-botones" role="group">
+                <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-step-backward"></span>&nbsp;Nuevo</button>
+                <button class="btn btn-info" type="button">Modificar&nbsp;<span class="glyphicon glyphicon-step-forward"></span></button>
+                  </div>
+              </div>
+          </div>
+        </nb-card>
+
+
+
+            </div>
+                  <div class="col-md-6" style="margin-left: 0px; margin-right: 0px;">
+                    <nb-card>
+                      <nb-card>
+
+                    <mat-tab-group>
+                      <mat-tab label="TareasClas">
+                        <div class="container">
+                            <div class="row">
+                                <label class="col-md-2 text-win-b pl-2">Genérica:</label>
+                                <label class="col-md-9 text-win">xxxxxxxxx</label>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-2 text-win-b pl-2">Sub Genérica:</label>
+                                <label class="col-md-9 text-win">xxxxxxxxx</label>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-2 text-win-b pl-2">SubGen Det:</label>
+                                <label class="col-md-9 text-win">xxxxxxxxx</label>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-2 text-win-b pl-2">Específica:</label>
+                                <label class="col-md-9 text-win">xxxxxxxxx</label>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-2 text-win-b pl-2">Clasificador:</label>
+                                <label class="col-md-9 text-win">xxxxxxxxx</label>
+                            </div>
+                            <div class="row">
+                              <label class="col-md-2 text-win-b pl-2">Descripcion:</label>
+                              <label class="col-md-9 text-win">xxxxxxxxx</label>
+                          </div>
+                         </div>
+                      </mat-tab>
+                      <mat-tab label="CuenTaClas"> Cuentas Contables</mat-tab>
+                      <mat-tab label="BienesSerClas">Bienes y / o Servicios</mat-tab>
+                      <mat-tab label="RequeClas">Requerimientos</mat-tab>
+                      <mat-tab label="OrdeClas">Ordenes</mat-tab>
+
+                    </mat-tab-group>
+                  </nb-card>
+
+
+
+                  <nb-card> 
+
+                    <div class="row">
+                        <div class="col-md-12 div-brow-top pl-9" >
+
+                          <div class="row show-grid ">
+
+                                      <div class="col-md-1">
+                                        <mat-form-field [style.fontSize.px]=14 style="width:70px !important" 
+                                          [hideRequiredMarker]="options.value.hideRequired"
+                                          [floatLabel]="options.value.floatLabel"><mat-select required>
+                                            <mat-option>-- None --</mat-option>
+                                          <mat-option value="option">Option</mat-option>
+                                        </mat-select><mat-label>Tipo:</mat-label>
+                                      </mat-form-field>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                      <mat-form-field [style.fontSize.px]=14 style="width:70px !important" 
+                                        [hideRequiredMarker]="options.value.hideRequired"
+                                        [floatLabel]="options.value.floatLabel">
+                                      <mat-select required>
+                                        <mat-option>-- None --</mat-option>
+                                        <mat-option value="option">Option</mat-option>
+                                      </mat-select>
+                                      <mat-label>Gen:</mat-label>
+                                    </mat-form-field>
+                                  </div>
+
+                                  <div class="col-md-1">
+                                    <mat-form-field [style.fontSize.px]=14 style="width:70px !important" 
+                                      [hideRequiredMarker]="options.value.hideRequired"
+                                      [floatLabel]="options.value.floatLabel">
+                                    <mat-select required>
+                                      <mat-option>-- None --</mat-option>
+                                      <mat-option value="option">Option</mat-option>
+                                    </mat-select>
+                                    <mat-label>Sub. Gen:</mat-label>
+                                  </mat-form-field>
+                                </div>
+
+
+
+                                  <div class="col-md-4">
+                                    <mat-form-field [style.fontSize.px]=14 style="width:200px !important" 
+                                    [hideRequiredMarker]="options.value.hideRequired"
+                                    [floatLabel]="options.value.floatLabel">
+                                  <input matInput placeholder="Detalle:" required>
+                                </mat-form-field>
+                                </div>
+
+                                  
+                          </div>
+
+                        </div>
+                
+                    </div>
+                  </nb-card>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <nb-card style="margin-top: 0px; margin-left: 0px; margin-right: 0px;"> 
+                      <div class="example-container mat-elevation-z8">
+                              <table mat-table [dataSource]="dataSource">
+                            
+                                <ng-container matColumnDef="position">
+                                  <th mat-header-cell *matHeaderCellDef> No. </th>
+                                  <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                                </ng-container>
+                            
+                                <ng-container matColumnDef="name">
+                                  <th mat-header-cell *matHeaderCellDef> Clasificador </th>
+                                  <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                                </ng-container>
+                            
+                                <ng-container matColumnDef="weight">
+                                  <th mat-header-cell *matHeaderCellDef> Descripcion </th>
+                                  <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                                </ng-container>
+                            
+                                <ng-container matColumnDef="symbol">
+                                  <th mat-header-cell *matHeaderCellDef> SIAF </th>
+                                  <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                                </ng-container>
+                            
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                              </table>
+                            </div>
+                        </nb-card>
+
+
+
+                  </nb-card>
+
+                </div>
+
+              </div>
+          </nb-card-body>
+
+  </nb-card></div></div>
+
+  

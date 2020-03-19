@@ -283,7 +283,7 @@ export const DEFAULT_THEME = {
       radius: ['65%', '100%'],
       center: ['50%', '50%'],
 
-      fontSize: '22',
+      fontSize: '9',
 
       firstPieGradientLeft: baseThemeVariables.success,
       firstPieGradientRight: baseThemeVariables.success,

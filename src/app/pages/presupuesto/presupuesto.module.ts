@@ -1,17 +1,15 @@
 import { NgModule } from '@angular/core';
 
-
-import { PresupuestoComponent } from "./presupuesto.component";
+// Nebular
 import { ThemeModule } from '../../@theme/theme.module';
-
-import { PresupuestoRoutingModule } from "./presupuesto-routing.module";
-
-import { ClasificadoresComponent} from "./clasificadores/clasificadores.component";
-import { SecfunComponent } from './secfun/secfun.component';
-
-// tablas
 import { NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule } from '@nebular/theme';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+
+
+// componentes principales
+import { PresupuestoComponent } from "./presupuesto.component";
+import { PresupuestoRoutingModule } from "./presupuesto-routing.module";
+
 
 // material
 import {MatTableModule} from '@angular/material/table';
@@ -24,6 +22,17 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from "@angular/material/input";
 import {MatSelectModule} from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import {MatTabsModule} from '@angular/material/tabs';
+
+
+// vitas de los tree-view
+import { ClasificadoresComponent} from "./clasificadores/clasificadores.component";
+import { SecfunComponent } from './secfun/secfun.component';
+import { TareasfunComponent } from './tareasfun/tareasfun.component';
+import { NotpresuComponent } from './notpresu/notpresu.component';
+
+
 
 @NgModule({
   imports: [
@@ -38,9 +47,14 @@ import {MatSelectModule} from '@angular/material/select';
     MatCardModule,
     MatSortModule,
     MatDividerModule,MatListModule,MatIconModule,
+
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    MatButtonModule,
+
+    // tabs
+    MatTabsModule,
   ],
 
   declarations: [
@@ -49,9 +63,12 @@ import {MatSelectModule} from '@angular/material/select';
     ClasificadoresComponent,
 
     SecfunComponent,
-    
 
-  
+    TareasfunComponent,
+
+    NotpresuComponent,
+
+    
   ],
   
 })
